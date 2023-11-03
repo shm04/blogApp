@@ -1,7 +1,9 @@
-<h1>List of Users</h1>
-
 <ul>
   <% @users.each do |user| %>
-    <li><%= user.name %></li>
+    <li>
+      <img src="<%= user.photo %>" alt="<%= user.name %>'s Photo" width="100" height="100" />
+      <%= link_to user.name, user_path(user) %>
+      Number of Posts: <%= user.post_counter %>
+    </li>
   <% end %>
 </ul>

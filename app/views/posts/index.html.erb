@@ -1,7 +1,30 @@
-<h1>List of Posts</h1>
+<div>
+  <img src="<%= @user.photo %>" alt="<%= @user.name %>'s Photo" width="100" height="100" />
+</div>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= post.title %></li>
-  <% end %>
-</ul>
+<div>
+  <strong><%= @user.name %></strong>
+</div>
+
+<div>
+  <strong>Number of posts:</strong> <%= @user.post_counter %>
+</div>
+
+<% @user.posts.each do |post| %>
+  <div>
+    <h2><%= link_to post.title, user_post_path(@user, post) %></h2>
+    <p><%= post.text %></p>
+
+    <p><strong>Comments:</strong> <%= post.comments.count %></p>
+
+    <p><strong>Likes:</strong> <%= post.likes.count %></p>
+
+    <ul>
+      <% post.recent_comments.each do |comment| %>
+        <li>
+          <%= comment.text %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
