@@ -1,9 +1,13 @@
+<head>
+  <%= stylesheet_link_tag 'application', 'posts' %>
+</head>
+
 <div>
-  <img src="<%= @user.photo %>" alt="<%= @user.name %>'s Photo" width="100" height="100" />
+  <img class="user-photo" src="<%= @user.photo %>" alt="<%= @user.name %>'s Photo" width="100" height="100" />
 </div>
 
 <div>
-  <strong><%= @user.name %></strong>
+  <strong class="title"><%= @user.name %></strong>
 </div>
 
 <div>

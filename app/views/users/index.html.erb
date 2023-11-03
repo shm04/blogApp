@@ -1,9 +1,13 @@
-<ul>
+<head>
+  <%= stylesheet_link_tag 'application', 'users_index' %>
+</head>
+
+<ul class="users-list">
   <% @users.each do |user| %>
-    <li>
+    <li class="user">
       <img src="<%= user.photo %>" alt="<%= user.name %>'s Photo" width="100" height="100" />
-      <%= link_to user.name, user_path(user) %>
-      Number of Posts: <%= user.post_counter %>
+      <%= link_to user.name, user_path(user), class: 'user-name' %>
+      <p class="no-posts">Number of Posts: <%= user.post_counter %></p>
     </li>
   <% end %>
 </ul>
