@@ -1,7 +1,29 @@
-<h1>List of Posts</h1>
+<head>
+  <%= stylesheet_link_tag 'application', 'posts_index' %>
+</head>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= post.title %></li>
-  <% end %>
-</ul>
+<div class="user-info">
+  <img class="user-photo" src="<%= @user.photo %>" alt="<%= @user.name %>'s Photo" />
+  <%= tag.div @user.name, class: 'user-name' %>
+  <p class="no-posts">Number of posts: <%= @user.post_counter %> </p>
+</div>
+
+<% @user.posts.each do |post| %>
+  <div class="posts-container">
+    <h2><%= link_to post.title, user_post_path(@user, post) %></h2>
+    <p><%= post.text %></p>
+
+    <div class="likes-div">
+          <p>Comments: <%= post.comments.count %></p>
+          <p class="likes">Likes: <%= post.likes.count %></p>
+    </div>
+
+    <ul>
+      <% post.recent_comments.each do |comment| %>
+        <li>
+          <%= comment.text %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

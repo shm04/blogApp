@@ -1,2 +1,25 @@
-<h1>Post Details</h1>
-<p>Post details go here.</p>
+<head>
+  <%= stylesheet_link_tag 'application', 'posts_show' %>
+</head>
+
+<div class="header-div">
+  <h1><%= @post.title %></h1>
+  <div class="likes-div">
+    <p>Likes: <%= @post.likes_counter %></p> 
+    <p class="comments">Comments: <%= @post.comments_counter %></p>
+  </div>
+</div>
+
+<div class="post-div">
+  <p><%= @post.text %></p>
+</div>
+
+<div>
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <li>
+        <%= comment.text %>
+      </li>
+    <% end %>
+  </ul>
+</div>

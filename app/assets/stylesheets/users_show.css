@@ -1,0 +1,61 @@
+.user-info {
+  display: flex;
+  justify-self: flex-start;
+  align-items: center;
+}
+
+.user-photo {
+  margin: 25px;
+}
+
+.user-name {
+  font-size: 30px;
+  padding: 0 40px;
+}
+
+.no-posts {
+  align-self: flex-end;
+  justify-self: flex-end;
+  margin: 0 0 50px 50px;
+}
+
+.bio-container {
+  justify-self: flex-start;
+  margin-left: 25px;
+}
+
+.posts-container {
+  margin: 50px 0 0 25px;
+}
+
+.posts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.list-item {
+  margin-top: 35px;
+}
+
+.likes-div {
+  display: flex;
+  margin-left: 400px;
+}
+
+.likes {
+  margin-left: 10px;
+}
+
+.btn-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.see-all-btn {
+  border: 1px solid black;
+  align-self: center;
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+}
