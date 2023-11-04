@@ -1,24 +1,24 @@
 .users-list {
-    list-style: none;
-    padding: 0;
-    margin: 30px 40px;
+  list-style: none;
+  padding: 0;
+  margin: 30px 40px;
 }
 
 .user {
-    display: flex;
-    margin: 10px;
-    width: 100%;
+  display: flex;
+  margin: 10px;
+  width: 100%;
 }
 
 .user-name {
-    font-size: 35px;
-    align-self: center;
-    padding: 0 35px;
-    text-decoration: none;
-    color: black;
+  font-size: 35px;
+  align-self: center;
+  padding: 0 35px;
+  text-decoration: none;
+  color: black;
 }
 
 .no-posts {
-    align-self: self-end;
-    justify-content: flex-end;
+  align-self: self-end;
+  justify-content: flex-end;
 }

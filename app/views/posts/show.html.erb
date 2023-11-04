@@ -1,15 +1,20 @@
-<div>
-  <h1><strong><%= @post.title %></strong></h1>
-  <strong>Likes:</strong> <%= @post.likes_counter %>
-  <strong>Comments:</strong> <%= @post.comments_counter %>
+<head>
+  <%= stylesheet_link_tag 'application', 'posts_show' %>
+</head>
+
+<div class="header-div">
+  <h1><%= @post.title %></h1>
+  <div class="likes-div">
+    <p>Likes: <%= @post.likes_counter %></p> 
+    <p class="comments">Comments: <%= @post.comments_counter %></p>
+  </div>
 </div>
 
-<div>
+<div class="post-div">
   <p><%= @post.text %></p>
 </div>
 
 <div>
-  <strong>Comments:</strong>
   <ul>
     <% @post.comments.each do |comment| %>
       <li>
