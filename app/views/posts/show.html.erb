@@ -23,3 +23,20 @@
     <% end %>
   </ul>
 </div>
+
+<h3>Create a Comment</h3>
+
+<%= form_with(model: [@post, Comment.new], local: true, url: user_post_comments_path(current_user, @post)) do |form| %>
+  <div class="field">
+    <%= form.text_area :text, placeholder: 'Enter your comment here' %>
+  </div>
+  <div class="actions">
+    <%= form.submit 'Create Comment' %>
+  </div>
+<% end %>
+<%= form_with(model: [current_user, @post.likes.build], local: true, url: user_post_likes_path(current_user, @post)) do |form| %>
+  <div class="actions">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.submit 'Like', class: 'like-button' %>
+  </div>
+<% end %>
