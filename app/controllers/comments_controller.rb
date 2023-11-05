@@ -18,4 +18,8 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:text)
   end
+
+  def new
+    @comment = Comment.new
+  end
 end

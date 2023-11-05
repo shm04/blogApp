@@ -18,10 +18,10 @@
           <p class="likes">Likes: <%= post.likes.count %></p>
     </div>
 
-    <ul>
+    <ul class="comments-list">
       <% post.recent_comments.each do |comment| %>
         <li>
-          <%= comment.text %>
+        <%= comment.user.name %>: <%= comment.text %>
         </li>
       <% end %>
     </ul>
