@@ -3,7 +3,7 @@
 </head>
 
 <div class="header-div">
-  <h1><%= @post.title %></h1>
+  <h1><%= @post.title %> by <%= @post.user.name %></h1>
   <div class="likes-div">
     <p>Likes: <%= @post.likes_counter %></p> 
     <p class="comments">Comments: <%= @post.comments_counter %></p>
