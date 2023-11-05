@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   before_action :find_user, only: %i[index create]
   before_action :find_post, only: [:show]
 
+  def new
+    @post = Post.new
+  end
+
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
@@ -33,9 +37,5 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :text)
-  end
-
-  def new
-    @post = Post.new
   end
 end
