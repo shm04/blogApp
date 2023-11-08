@@ -16,9 +16,9 @@
 
 <div>
   <ul>
-    <% @post.comments.each do |comment| %>
+    <% @post.comments.includes(:user).each do |comment| %>
       <li>
-        <%= comment.text %>
+        <%= comment.text %> by <%= comment.user.name %>
       </li>
     <% end %>
   </ul>

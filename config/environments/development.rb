@@ -36,9 +36,6 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  # Enable verbose query logs, printing SQL queries to the standard output (STDOUT)
-  config.logger = Logger.new(STDOUT)
-
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
