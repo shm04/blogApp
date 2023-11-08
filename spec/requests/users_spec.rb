@@ -14,12 +14,12 @@ RSpec.describe 'Users', type: :request do
 
     it 'includes the correct placeholder text in the response body' do
       get users_path
-      expect(response.body).to include('List of Users')
+      expect(response.body).to include('<ul class="users-list">')
     end
   end
 
   describe 'GET /users/:id' do
-    let(:user) { User.create(name: 'test_user') }
+    let(:user) { User.create(name: 'test_user', bio: 'user_bio') }
 
     it 'returns a 200 OK status' do
       get user_path(user)
@@ -33,7 +33,7 @@ RSpec.describe 'Users', type: :request do
 
     it 'includes the correct placeholder text in the response body' do
       get user_path(user)
-      expect(response.body).to include('User Profile')
+      expect(response.body).to include(user.bio)
     end
   end
 end

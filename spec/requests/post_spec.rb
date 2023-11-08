@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  # Create a user and post using ActiveRecord
   let(:user) { User.create(name: 'test_user') }
   let(:post) { Post.create(title: 'Test Post', author: user) }
   let!(:comment1) { Comment.create(text: 'This is a test post comment 1', post:) }
@@ -20,7 +19,7 @@ RSpec.describe 'Posts', type: :request do
 
     it 'includes the correct placeholder text in the response body' do
       get user_posts_path(user)
-      expect(response.body).to include('List of Posts')
+      expect(response.body).to include(user.name)
     end
   end
 
@@ -37,7 +36,7 @@ RSpec.describe 'Posts', type: :request do
 
     it 'includes the correct placeholder text in the response body' do
       get user_post_path(user, post)
-      expect(response.body).to include('Post Details')
+      expect(response.body).to include(post.title)
     end
   end
 end
