@@ -5,7 +5,7 @@
 <ul class="users-list">
   <% @users.includes(:posts).each do |user| %>
     <li id="user_<%= user.id %>" class="user">
-      <img src="<%= user.photo %>" alt="<%= user.name %>'s Photo" width="100" height="100" />
+      <img src="<%= asset_path(user.photo) %>" alt="<%= user.name %>'s Photo" width="100" height="100" />
       <%= link_to user.name, user_path(user), class: 'user-name' %>
       <p class="no-posts">Number of Posts: <%= user.posts.size %></p>
     </li>

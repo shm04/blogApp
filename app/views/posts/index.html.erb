@@ -3,7 +3,7 @@
 </head>
 
 <div class="user-info">
-  <img class="user-photo" src="<%= @user.photo %>" alt="<%= @user.name %>'s Photo" />
+  <img class="user-photo" src="<%= asset_path(@user.photo) %>" alt="<%= @user.name %>'s Photo" width="100" height="100" />
   <%= tag.div @user.name, class: 'user-name' %>
   <p class="no-posts">Number of posts: <%= @user.post_counter %> </p>
 </div>
