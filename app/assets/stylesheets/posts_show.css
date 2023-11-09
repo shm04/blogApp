@@ -16,3 +16,7 @@
 .post-div {
   margin-left: 25px;
 }
+
+.comments-list {
+  list-style: none;
+}
