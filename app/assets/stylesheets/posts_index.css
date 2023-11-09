@@ -31,3 +31,7 @@
 .likes {
   margin-left: 10px;
 }
+
+.comments-list {
+  list-style: none;
+}
