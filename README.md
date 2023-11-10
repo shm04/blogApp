@@ -85,7 +85,7 @@ GitHub account<br>
 > You need the following tools be installed in your computer:
 
 > - [Git](https://www.linode.com/docs/guides/how-to-install-git-on-linux-mac-and-windows/)
-> - [Ruby](https://github.com/microverseinc/curriculum-ruby/blob/main/simple-ruby/articles/ruby_installation_instructions.md)
+> - [Ruby](https://www.ruby-lang.org/es/)
 > - IDE
 
 ### Setup
