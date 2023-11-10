@@ -3,11 +3,11 @@
 </head>
 
 <ul class="users-list">
-  <% @users.each do |user| %>
-    <li class="user">
-      <img src="<%= user.photo %>" alt="<%= user.name %>'s Photo" width="100" height="100" />
+  <% @users.includes(:posts).each do |user| %>
+    <li id="user_<%= user.id %>" class="user">
+      <img src="<%= asset_path(user.photo) %>" alt="<%= user.name %>'s Photo" width="100" height="100" />
       <%= link_to user.name, user_path(user), class: 'user-name' %>
-      <p class="no-posts">Number of Posts: <%= user.post_counter %></p>
+      <p class="no-posts">Number of Posts: <%= user.posts.size %></p>
     </li>
   <% end %>
 </ul>

@@ -3,7 +3,7 @@
 </head>
 
 <div class="user-info">
-  <img class="user-photo" src="<%= @user.photo %>" alt="<%= @user.name %>'s Photo" width="100" height="100" />
+  <img class="user-photo" src="<%= asset_path(@user.photo) %>" alt="<%= @user.name %>'s Photo" width="100" height="100" />
   <%= tag.div @user.name, class: 'user-name' %>
   <p class="no-posts">Number of posts: <%= @user.post_counter %> </p>
 </div>
@@ -15,14 +15,14 @@
 
 <div class="posts-container">
   <ul class="posts-list">
-    <% @user.recent_posts.each do |post| %>
+    <% @user.recent_posts.includes(:comments, :likes).each do |post| %>
       <li class="list-item">
-        <%= post.title %>
+        <h2 id="post_<%= post.id %>"><%= link_to post.title, user_post_path(@user, post) %></h2>
         <p><%= post.text %></p>
 
         <div class="likes-div">
-          <p>Comments: <%= post.comments.count %></p>
-          <p class="likes">Likes: <%= post.likes.count %></p>
+          <p>Comments: <%= post.comments.size %></p>
+          <p class="likes">Likes: <%= post.likes.size %></p>
         </div>
       </li>
     <% end %>

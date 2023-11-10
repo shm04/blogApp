@@ -3,19 +3,19 @@
 </head>
 
 <div class="user-info">
-  <img class="user-photo" src="<%= @user.photo %>" alt="<%= @user.name %>'s Photo" />
+  <img class="user-photo" src="<%= asset_path(@user.photo) %>" alt="<%= @user.name %>'s Photo" width="100" height="100" />
   <%= tag.div @user.name, class: 'user-name' %>
   <p class="no-posts">Number of posts: <%= @user.post_counter %> </p>
 </div>
 
-<% @user.posts.each do |post| %>
+<% @user.posts.includes(:comments).each do |post| %>
   <div class="posts-container">
-    <h2><%= link_to post.title, user_post_path(@user, post) %></h2>
+    <h2 id="post_<%= post.id %>"><%= link_to post.title, user_post_path(@user, post) %></h2>
     <p><%= post.text %></p>
 
     <div class="likes-div">
-          <p>Comments: <%= post.comments.count %></p>
-          <p class="likes">Likes: <%= post.likes.count %></p>
+      <p>Comments: <%= post.comments.size %></p>
+      <p class="likes">Likes: <%= post.likes.size %></p>
     </div>
 
     <ul class="comments-list">
@@ -27,3 +27,7 @@
     </ul>
   </div>
 <% end %>
+
+<div class="pagination">
+    <%= will_paginate @posts %>
+</div>
