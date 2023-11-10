@@ -53,6 +53,7 @@ group :development, :test do
   gem 'capybara', '>= 3.26'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0.0'
 end

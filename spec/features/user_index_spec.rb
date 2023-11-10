@@ -1,14 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe 'User index page', type: :feature do
-  let!(:users) { create_list(:user, 3) }
+  let!(:users) { create_list(:user, 3, photo: 'tom.jpg') }
 
   before do
     visit users_path
   end
 
-  it 'shows all users with their number of posts' do
+  it 'displays user information and post count' do
     users.each do |user|
+      expect(page).to have_selector("img[src*='tom']")
       expect(page).to have_content(user.name)
       expect(page).to have_content("Number of Posts: #{user.posts.size}")
     end

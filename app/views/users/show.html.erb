@@ -17,7 +17,7 @@
   <ul class="posts-list">
     <% @user.recent_posts.includes(:comments, :likes).each do |post| %>
       <li class="list-item">
-        <%= post.title %>
+        <h2 id="post_<%= post.id %>"><%= link_to post.title, user_post_path(@user, post) %></h2>
         <p><%= post.text %></p>
 
         <div class="likes-div">
