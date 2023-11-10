@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Post index page for a user', type: :feature do
   let(:user) { create(:user) }
   let!(:posts) { create_list(:post, 3, author: user) }
-  let!(:comments) { create_list(:comment, 3, user: user, post: posts.first) }
+  let!(:comments) { create_list(:comment, 3, user:, post: posts.first) }
   include ActionView::Helpers::AssetUrlHelper
   before do
     visit user_posts_path(user)
@@ -11,7 +11,7 @@ RSpec.describe 'Post index page for a user', type: :feature do
 
   it 'displays user information' do
     expect(page).to have_selector("img[src*='tom']")
-    expect(page).to have_css(".user-info .user-name", text: user.name)
+    expect(page).to have_css('.user-info .user-name', text: user.name)
     expect(page).to have_content("Number of posts: #{user.post_counter}")
   end
 

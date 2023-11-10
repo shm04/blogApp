@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Post show page', type: :feature do
   let(:user) { create(:user) }
   let(:post) { create(:post, author: user) }
-  let!(:comments) { create_list(:comment, 3, post: post, user: user) }
+  let!(:comments) { create_list(:comment, 3, post:, user:) }
 
   before do
     visit user_post_path(user, post)
