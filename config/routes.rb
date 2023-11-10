@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
   root 'users#index'
 
@@ -12,6 +10,8 @@ Rails.application.routes.draw do
         post 'likes', to: 'likes#create'
       end
     end
+
+    get 'posts/page/:page', to: 'posts#index', on: :member, as: 'posts_page'
   end
 
   delete '/likes/:id', to: 'likes#destroy', as: 'like'

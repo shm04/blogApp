@@ -46,4 +46,10 @@ RSpec.describe 'Post index page for a user', type: :feature do
     end
     expect(current_path).to eq(user_post_path(user, first_post))
   end
+
+  it 'see a section for pagination if there are more posts than fit on the view' do
+    create_list(:post, 10, author: user)
+    visit user_posts_path(user)
+    expect(page).to have_css('.pagination')
+  end
 end

@@ -13,6 +13,7 @@ RSpec.describe 'User show page', type: :feature do
     expect(page).to have_content("Number of posts: #{user.posts.size}")
 
     user.recent_posts.take(3).each do |post|
+      expect(page).to have_selector("img[src*='tom']")
       expect(page).to have_content(post.title)
       expect(page).to have_content(post.text)
       expect(page).to have_content("Comments: #{post.comments.size}")
@@ -35,5 +36,10 @@ RSpec.describe 'User show page', type: :feature do
       click_link first_post.title
     end
     expect(current_path).to eq(user_post_path(user, first_post))
+  end
+
+  it 'returns the user\'s first 3 posts using the recent_posts method' do
+    first_3_posts = user.recent_posts
+    expect(user.recent_posts).to eq(first_3_posts)
   end
 end
