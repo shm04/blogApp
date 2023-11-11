@@ -14,7 +14,6 @@ class User < ApplicationRecord
     puts "Confirmed At: #{confirmed_at}"
     puts "Unconfirmed Email: #{unconfirmed_email}"
 
-    # ... other code
   end
 
   def recent_posts
