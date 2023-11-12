@@ -12,7 +12,7 @@
   <% end %>
 </ul>
 
-<%= form_with(model: @user) do |form| %>
+<%= form_with(model: [current_user, Post.new], local: true) do |form| %>
 
   <div class="field">
     <%= form.label :title %>
