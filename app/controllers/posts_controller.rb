@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_user, only: %i[index create]
-  before_action :find_post, only: [:show]
+  before_action :authenticate_user!, only: %i[new create]
 
   def new
     @post = Post.new
@@ -17,10 +16,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
-
+    @user = current_user
+    @post = @user.posts.build(post_params)
     if @post.save
-      redirect_to user_post_path(@user, @post), notice: 'Post was successfully created.'
+      redirect_to user_posts_path(@user), notice: 'Post was successfully created.'
     else
       render :new
     end

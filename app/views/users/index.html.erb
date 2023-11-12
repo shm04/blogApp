@@ -2,9 +2,6 @@
   <%= stylesheet_link_tag 'application', 'users_index' %>
 </head>
 
-<%= link_to 'Log In', new_user_session_path %>
-
-
 <ul class="users-list">
   <% @users.includes(:posts).each do |user| %>
     <li id="user_<%= user.id %>" class="user">
@@ -15,7 +12,7 @@
   <% end %>
 </ul>
 
-<%= form_with(model: user) do |form| %>
+<%= form_with(model: [@user, @post], url: post_path) do |form| %>
 
   <div class="field">
     <%= form.label :title %>
